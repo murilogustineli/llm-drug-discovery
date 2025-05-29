@@ -1,0 +1,13 @@
+streamlit==1.32.0
+pandas==2.1.0
+matplotlib==3.8.0
+plotly==5.18.0
+pillow==10.0.0
+torch==2.7.0
+pytorch-lightning
+transformers
+scikit-learn
+seaborn
+python-dotenv
+jupyterlab
+ipywidgets

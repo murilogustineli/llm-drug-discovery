@@ -1,0 +1,10 @@
+*venv/
+*data/
+.env
+*.egg-info/
+*/.DS_Store
+*.pyc
+build/
+__pycache__/
+.ipynb_checkpoints/
+*lightning_logs/
