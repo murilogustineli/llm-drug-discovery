@@ -6,7 +6,7 @@ This project enhances a patient-trial matching system by leveraging large langua
 
 ## Data Source
 
-We used the Heart Failure Clinical Records Dataset from Kaggle, which contains 299 patient records with 13 clinical features including:
+We used the Heart Failure Clinical Records Dataset from [UCI ML repo](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records), which contains 299 patient records with 13 clinical features including:
 - Demographics (age, sex)
 - Clinical measurements (ejection fraction, serum creatinine, serum sodium)
 - Binary health indicators (anaemia, diabetes, high blood pressure, smoking)
