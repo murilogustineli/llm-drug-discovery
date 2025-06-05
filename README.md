@@ -1,105 +1,101 @@
-# LLMs in Drug Discovery and Development - Streamlit Application
+# Patient–Trial Matching Notebooks
 
-This document provides information on how the Streamlit application works and instructions on how to run it.
+This repository contains Jupyter notebooks for simulating clinical trials and matching simulated patients to those trials using both **TF-IDF** and [**Bio_ClinicalBERT**](https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT) embeddings. All work is organized under the `notebooks/` folder.
 
-## Application Overview
+This project was powered by **LobeChat** using a **custom OpenAI-compatible API key** connected to a **Meta-Llama-3.3-7B-Instruct** model.  
+> The model is hosted on **Denvr Dataworks**, leveraging **Intel's Gaudi 2 accelerator** for efficient inference.
 
-This Streamlit application provides an interactive exploration of how Large Language Models (LLMs) are transforming the drug discovery and development process. Based on the research paper "Large Language Models in Drug Discovery and Development: From Disease Mechanisms to Clinical Trials", the application illustrates the impact of LLMs across the three main stages of drug development:
+![lobe-chat](./images/lobe-chat.png)
 
-1. **Understanding Disease Mechanisms**
-2. **Drug Discovery**
-3. **Clinical Trials**
+To learn more about enterprise-scale inference, available models, and how to deploy your own AI workloads with Gaudi, visit [https://www.denvrdata.com/intel](https://www.denvrdata.com/intel)
 
-The application also explores the two main paradigms of LLMs (specialized and general-purpose), assesses the maturity of different LLM applications in the field, and discusses future directions.
 
-## Application Structure
+## Repo structure
 
-The application is organized into several pages accessible through the sidebar navigation:
+```
+llm-drug-discovery/
+├── data/
+├── notebooks/
+├── plots/
+├── requirements.txt
+└── README.md
+```
 
-1. **Home**: Provides an overview of the application and the drug discovery pipeline
-2. **LLM Paradigms**: Explains the two main paradigms of language models used in drug discovery
-3. **Disease Mechanisms**: Details how LLMs help in understanding disease mechanisms
-4. **Drug Discovery**: Explores LLM applications in the drug discovery process
-5. **Clinical Trials**: Describes how LLMs optimize clinical trial processes
-6. **Maturity Assessment**: Visualizes the current state of LLM applications in the field
-7. **Future Directions**: Discusses upcoming trends and challenges
 
-## Interactive Features
+- **`data/`**: 
+  - Raw CSV from UCI (heart_failure_clinical_records_dataset.csv) and generated JSON files (`train_patients.json`, `train_trials.json`, etc.).
+  - Evaluation results (`matching_eval.csv`).
 
-The application includes several interactive elements:
+- **`notebooks/`**:
+  1. **`00_explore_dataset.ipynb`** – load and explore the original heart failure dataset.  
+  2. **`01_simulate_trials.ipynb`** – generate synthetic clinical trial protocols and match patients to those trials using deterministic rules.  
+  3. **`02_patient_trial_matching.ipynb`** – baseline TF-IDF text‐similarity approach to match patients and trials, with threshold tuning and per‐trial F1 evaluation.  
+  4. **`03_enhanced_patient_trial_matching.ipynb`** – enhanced matching using Bio_ClinicalBERT embeddings combined with a rule‐based prefilter; threshold tuning and per‐trial F1 evaluation.
 
-- **Navigation Sidebar**: Allows users to move between different sections
-- **Interactive Dropdowns**: Users can select specific applications to explore in detail
-- **Comparative Views**: Toggle between different aspects of LLM paradigms
-- **Filterable Visualizations**: Users can filter the maturity assessment by stage and maturity level
-- **Tabbed Interfaces**: Organize complex information into accessible formats
+- **`plots/`**:
+  - Pre‐generated figures (F1 vs. threshold, precision/recall) used in the notebooks.
 
-## How to Run the Application
+- **`requirements.txt`**: 
+  - List of Python packages required to run all notebooks (e.g. `pandas`, `numpy`, `scikit-learn`, `torch`, `transformers`, etc.).
 
-### Prerequisites
+## Getting Started
 
-Before running the application, ensure you have Python installed on your system. This application was developed with Python 3.8+ in mind.
+### 1. Clone the Repository
 
-### Installation Steps
+```bash
+git clone https://github.com/murilogustineli/llm-drug-discovery.git
+cd llm-drug-discovery
+```
 
-1. **Clone or download the application files** to your local machine
+### 2. Set Up a Virtual Environment
 
-2. **Create a virtual environment** (recommended):
-   ```bash
-   python -m venv venv
-   ```
+It’s recommended to create and activate a Python 3.8+ virtual environment:
 
-3. **Activate the virtual environment**:
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
+```bash
+python -m venv .venv
+source .venv/bin/activate      # on macOS/Linux
+# .venv\Scripts\activate       # on Windows
+```
 
-4. **Install the required dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 3. Install Dependencies
 
-5. **Run the Streamlit application**:
-   ```bash
-   streamlit run app.py
-   ```
+```bash
+pip install -r requirements.txt
+```
 
-6. **Access the application** in your web browser. Streamlit will automatically open a browser window, or you can navigate to the URL displayed in the terminal (typically http://localhost:8501).
+All required libraries (e.g., `pandas`, `matplotlib`, `scikit-learn`, `torch`, `transformers`) are listed in `requirements.txt`.
 
-### Troubleshooting
+### 4. Run the Notebooks
 
-- If you encounter any issues with dependencies, ensure you're using a compatible Python version and that all packages in requirements.txt are installed correctly.
-- If the application doesn't open automatically, try accessing it manually by entering the URL shown in the terminal.
-- If you see visualization errors, make sure Plotly and its dependencies are correctly installed.
+Navigate to the `notebooks/` folder, then run each notebook in order:
+1. `00_explore_datasetipynb`
+2. `01_simulate_trials.ipynb`
+3. `02_patient_trial_matching.ipynb`
+4. `03_enhanced_patient_trial_matching.ipynb`
+
+Each notebook is self-contained and walks you through:
+- Loading and preprocessing the data
+- Creating simulated clinical trial protocols
+- Performing patient–trial matching with TF-IDF or ClinicalBERT
+- Evaluating matching performance (precision, recall, F1)
+- Visualizing results (threshold curves, per‐trial F1 bar charts)
+
+## Results & Plots
+
+- `plots/f1_by_trial.png` and `plots/precision_recall_by_trial.png` show TF-IDF–based matching outcomes.
+- `plots/threshold_vs_f1.png` plots F1 score versus threshold for TF-IDF.
+- `plots/bert_threshold_vs_f1.png` and `plots/bert_f1_by_trial.png` show equivalent results when using ClinicalBERT embeddings.
+
+You can regenerate these figures by rerunning the corresponding notebook cells.
 
 ## Customization
 
-You can customize the application by:
+    To change the number of simulated trials or patient samples, modify parameters in 01_simulate_trials.ipynb.
 
-- Adding new content to the existing pages
-- Creating additional pages for more specific topics
-- Enhancing visualizations with more data from the paper
-- Incorporating additional research papers or resources
+    To adjust TF-IDF or ClinicalBERT threshold ranges, edit the threshold arrays in 02_patient_trial_matching.ipynb and 03_enhanced_patient_trial_matching.ipynb.
 
-## Technical Details
+    Feel free to add new notebooks or scripts for alternative matching methods or other dataset explorations.
 
-The application is built using:
+## Paper & Context
 
-- **Streamlit**: For the web application framework
-- **Pandas**: For data handling and manipulation
-- **Plotly**: For interactive visualizations
-- **Matplotlib**: For additional plotting capabilities
-- **PIL (Pillow)**: For image processing
-
-The code is structured with a main app.py file that contains all the page definitions and interactive elements.
-
-## Paper Reference
-
-This application is based on the paper:
-"Large Language Models in Drug Discovery and Development: From Disease Mechanisms to Clinical Trials"
-Available at: https://arxiv.org/pdf/2409.04481
+This work was inspired by methods in clinical trial matching, but focuses solely on the “Clinical Trials” stage. The original heart failure dataset comes from [**UCI: Heart Failure Clinical Records Data Set**](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records).

@@ -1,3 +1,26 @@
+"""
+You are a highly experienced AI researcher and biotech innovator. Propose a novel application with complete Python code that leverages large language models (LLMs) for a specific point of the drug discovery pipeline: automatic patient-trial matching. In general, the process of drug discovery has three main stages:
+1) Understanding disease mechanisms (e.g., genomics, transcriptomics, protein analysis)
+2) Drug discovery (e.g., molecule design, retrosynthesis, ADMET prediction)
+3) Clinical trials (e.g., patient-trial matching, trial design, outcome prediction)
+Focus on just patient-trial matching. Here is some more information on patient-trial matching specifically from the paper “Large Language Models in Drug Discovery and Development: From Disease Mechanisms to Clinical Trials” by Zheng et al. (2024):
+“General LLMs provide significant advantages in analyzing electronic health records and clinical protocols (Singhal et al., 2023; Jin et al., 2023c; Huang et al., 2020). They can facilitate patient-trial matching, assist in trial planning, help predict trial outcomes, and assist in document writing. The user-friendly chat interfaces of general LLMs also make it easier for practitioners to interact with them.
+When it comes to matching patients with clinical trials, the process relies on the use of electronic health records (EHRs) to identify viable options based on the patient’s medical history. Historically, this task was performed manually by physicians and data analysts who would sift through patient demographics and pre-screening eligibility factors to pinpoint the most suitable trial. However, this approach can be time-consuming and fraught with errors due to the complexity and diversity of trial criteria. …
+Recently, there have been several methods harnessing general-purpose LLMs to facilitate patient-trial matching based on LLMs reasoning ability. Med-monoT5 (Pradeep et al., 2022) is a T5-based system fine-tuned on medical passage ranking tasks that follows a zero-shot approach. It evaluates clinical trial documents’ relevance to patient descriptions utilizing specifically designed templates. It employs a two-stage fine-tuning process on general and medical datasets, leveraging a sliding-window approach to handle lengthy text fields for matching patients with appropriate clinical trials. Hamer et al.  (Hamer et al., 2023) use InstructGPT (Ouyang et al., 2022) to assist physicians in determining patient eligibility for clinical trials. Employ prompting strategies such as one-shot, selection-inference, and chain-of-thought—to parse and analyze the criteria. While this automation has been shown to potentially reduce up to 90% of the workload, achieving about 72% accuracy in screenability, it is not without issues. Overconfidence in interpreting ambiguous criteria and the risk of generating inaccurate content necessitate continued supervision by medical professionals to ensure reliability. Another pioneering work, TrialGPT (Jin et al., 2023c), uses an architecture that predicts criterion-level eligibility and provides detailed explanations. These explanations are aggregated to rank and exclude candidate clinical trials based on free-text patient notes. Although TrialGPT (Jin et al., 2023c) correlates well with expert annotations, its occasional errors highlight the limited medical knowledge of GPT 3.5 and the need for their careful integration into clinical trial matching processes.”
+Please include:
+• A short project title
+• A one-paragraph summary of the application
+• The LLM technology it would use. Use general purpose LLMs.
+• The specific task(s) it improves or automates
+• The input/output format of the data
+• Potential challenges and how you might address them
+• A complete set of Python code
+• Provide an example dataset that can be run in the code directly.
+• Provide a requirements.txt file with all Python libraries required.
+Your goal is to propose an impactful, realistic, and technically feasible application to match client data from Electronic Health Records with clinical trial requirements documents.
+Follow up: Modify the code so that it provides a web UI interface for the application, where someone could upload their data.
+"""
+
 import json
 import pandas as pd
 from transformers import BertTokenizer, BertModel
