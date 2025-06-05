@@ -36,7 +36,7 @@ llm-drug-discovery/
   - Pre‐generated figures (F1 vs. threshold, precision/recall) used in the notebooks.
 
 #### `requirements.txt`: 
-  - List of Python packages required to run all notebooks (e.g. `pandas`, `numpy`, `scikit-learn`, `torch`, `transformers`, etc.).
+  - List of Python packages required to run all notebooks.
 
 ## Getting Started
 
