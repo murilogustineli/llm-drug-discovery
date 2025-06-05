@@ -90,11 +90,11 @@ You can regenerate these figures by rerunning the corresponding notebook cells.
 
 ## Customization
 
-    To change the number of simulated trials or patient samples, modify parameters in 01_simulate_trials.ipynb.
+- To change the number of simulated trials or patient samples, modify parameters in `01_simulate_trials.ipynb`.
 
-    To adjust TF-IDF or ClinicalBERT threshold ranges, edit the threshold arrays in 02_patient_trial_matching.ipynb and 03_enhanced_patient_trial_matching.ipynb.
+- To adjust TF-IDF or ClinicalBERT threshold ranges, edit the threshold arrays in `02_patient_trial_matching.ipynb` and `03_enhanced_patient_trial_matching.ipynb`.
 
-    Feel free to add new notebooks or scripts for alternative matching methods or other dataset explorations.
+- Feel free to add new notebooks or scripts for alternative matching methods or other dataset explorations.
 
 ## Paper & Context
 
