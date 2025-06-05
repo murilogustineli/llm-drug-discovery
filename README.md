@@ -98,4 +98,4 @@ You can regenerate these figures by rerunning the corresponding notebook cells.
 
 ## Paper & Context
 
-This work was inspired by methods in clinical trial matching, but focuses solely on the “Clinical Trials” stage. The original heart failure dataset comes from [**UCI: Heart Failure Clinical Records Data Set**](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records).
+This work was inspired by methods in clinical trial matching presented in the paper [***"Large Language Models in Drug Discovery and Development: From Disease Mechanisms to Clinical Trials"***](https://arxiv.org/abs/2409.04481), focusing only on the “Clinical Trials” stage. The original heart failure dataset comes from [**UCI: Heart Failure Clinical Records Data Set**](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records).
