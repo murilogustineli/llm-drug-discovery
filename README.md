@@ -2,6 +2,14 @@
 
 This repository contains Jupyter notebooks for simulating clinical trials and matching simulated patients to those trials using both **TF-IDF** and [**Bio_ClinicalBERT**](https://huggingface.co/emilyalsentzer/Bio_ClinicalBERT) embeddings. All work is organized under the `notebooks/` folder.
 
+This project was powered by **LobeChat** using a **custom OpenAI-compatible API key** connected to a **Meta-Llama-3.3-7B-Instruct** model.  
+> The model is hosted on **Denvr Dataworks**, leveraging **Intel's Gaudi 2 accelerator** for efficient inference.
+
+![lobe-chat](./images/lobe-chat.png)
+
+To learn more about enterprise-scale inference, available models, and how to deploy your own AI workloads with Gaudi, visit [https://www.denvrdata.com/intel](https://www.denvrdata.com/intel)
+
+
 ## Repo structure
 
 ```
