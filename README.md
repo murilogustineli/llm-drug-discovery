@@ -23,7 +23,9 @@ llm-drug-discovery/
 
 
 #### `data/`: 
-  - Raw CSV from UCI (heart_failure_clinical_records_dataset.csv) and generated JSON files (`train_patients.json`, `train_trials.json`, etc.), plus evaluation results (`matching_eval.csv`).
+  - Raw CSV from UCI (heart_failure_clinical_records_dataset.csv)
+  - Generated JSON files (`train_patients.json`, `train_trials.json`, etc.)
+  - Evaluation results (`matching_eval.csv`).
 
 #### `notebooks/`:
   1. [**`00_explore_dataset.ipynb`**](./notebooks/00_explore_dataset.ipynb) – load and explore the original heart failure dataset.  
