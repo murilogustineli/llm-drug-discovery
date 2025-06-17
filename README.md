@@ -65,29 +65,6 @@ source .venv/bin/activate      # on macOS/Linux
 pip install -r requirements.txt
 ```
 
-<!-- ### 4. Run the Notebooks
-
-Navigate to the `notebooks/` folder, then run each notebook in order:
-1. `00_explore_datasetipynb`
-2. `01_simulate_trials.ipynb`
-3. `02_patient_trial_matching.ipynb`
-4. `03_enhanced_patient_trial_matching.ipynb`
-
-Each notebook is self-contained and walks you through:
-- Loading and preprocessing the data
-- Creating simulated clinical trial protocols
-- Performing patient–trial matching with TF-IDF or ClinicalBERT
-- Evaluating matching performance (precision, recall, F1)
-- Visualizing results (threshold curves, per‐trial F1 bar charts)
-
-## Results & Plots
-
-- `plots/f1_by_trial.png` and `plots/precision_recall_by_trial.png` show TF-IDF–based matching outcomes.
-- `plots/threshold_vs_f1.png` plots F1 score versus threshold for TF-IDF.
-- `plots/bert_threshold_vs_f1.png` and `plots/bert_f1_by_trial.png` show equivalent results when using ClinicalBERT embeddings.
-
-You can regenerate these figures by rerunning the corresponding notebook cells. -->
-
 
 ## Customization Options
 
